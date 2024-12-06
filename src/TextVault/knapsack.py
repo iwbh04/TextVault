@@ -1,4 +1,7 @@
-from .base_class import *
+try:
+    from .base_class import *
+except ImportError:
+    from base_class import *
 import random
 import base64
 
