@@ -74,7 +74,7 @@ class KnapsackEncryptor(Encryptor):
 
         return ''.join(chr(i) for i in recovered)
     
-    def newkey(self) -> tuple[Key]:
+    def newkey(self) -> tuple[Key, Key]:
         """
         Return a new (public key, private key) tuple for knapsack-cryptosystem.
 
@@ -112,7 +112,7 @@ class KnapsackEncryptor(Encryptor):
         public_key = [(x * mult) % mod for x in private_key]
         private_key += [mod, mult]
 
-        return Key(self.__list_encode(public_key), self.__class__), Key(self.__list_encode(private_key), self.__class__)
+        return Key(self.__list_encode(public_key)), Key(self.__list_encode(private_key))
 
 """
 enc = KnapsackEncryptor()
