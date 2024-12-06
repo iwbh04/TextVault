@@ -1,3 +1,5 @@
+from base_class import Key, Encryptor
+
 class RSAEncryptor(Encryptor):
     def newkey(self) -> tuple[Key, Key]:
         public_key, private_key = generate_keys()
