@@ -56,7 +56,7 @@ class JMatrixEncryptor(Encryptor):
         decrypted_text = ''.join(chr(char) for char in decrypted_vector if char > 0)
         return decrypted_text
 
-
+"""
 
 if __name__ == "__main__":
     # Instantiate the encryptor
@@ -76,3 +76,5 @@ if __name__ == "__main__":
     # Decrypt the message
     decrypted_message = encryptor.decrypt(encrypted_message, private_key)
     print(f"Decrypted Message: {decrypted_message}")
+
+"""
