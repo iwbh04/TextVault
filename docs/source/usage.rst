@@ -1,16 +1,20 @@
 Usage
 =====
 
-
-
 Installation
 ------------
 
-To use TEXTVAULT_LIBRARY, first install it using pip:
+To use TextVault, first install it using pip:
 
 .. code-block:: console
 
-    (.venv) $ pip install TEXTVAULT_LIBRARY
+    (.venv) $ pip install TextVault
+
+Knapsack Encryptor
+==================
+.. autoclass:: TextVault.KnapsackEncryptor
+    :members:
+
 
 RSA Encryption Module
 =====================
@@ -60,3 +64,4 @@ from rsa import generate_keys
 public_key, private_key = generate_keys()
 print("Public Key:", public_key)
 print("Private Key:", private_key)
+

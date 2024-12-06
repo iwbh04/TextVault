@@ -4,9 +4,6 @@ class Key:
     def __init__(self, value, encryptor):
         self.value: str = value
         self.encryptor: Encryptor = encryptor
-    
-    def export(self, file_name: str):
-        pass
 
 
 class Encryptor(ABC):
@@ -26,5 +23,5 @@ class Encryptor(ABC):
 #     # 암호화 가능한 문자열의 길이를 초과한 경우
 #     pass
 
-class KeyTypeNotMatch(Exception):
-    pass
+# class KeyTypeNotMatch(Exception):
+#     pass

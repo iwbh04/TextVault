@@ -1,4 +1,7 @@
-from base_class import *
+try:
+    from .base_class import *
+except ImportError:
+    from base_class import *
 import random
 import base64
 
@@ -29,7 +32,6 @@ class KnapsackEncryptor(Encryptor):
         :rtype: str
 
         """
-        if key.encryptor != self.__class__: raise KeyTypeNotMatch("Encryptor doesn't match")
         key = self.__list_decode(key.value)
 
         # 임시로 각 값의 ord를 사용
@@ -50,9 +52,8 @@ class KnapsackEncryptor(Encryptor):
         :rtype: str
 
         """
-        if key.encryptor != self.__class__: raise KeyTypeNotMatch("Encryptor doesn't match")
         key = self.__list_decode(key.value)
-        if len(key) < 3: raise KeyTypeNotMatch("Key format doesn't match")
+        if len(key) < 3: raise ValueError("Key format doesn't match")
 
         *arr, mod, mult = key
         inv_mult = pow(mult, -1, mod)
