@@ -79,7 +79,7 @@ class KnapsackEncryptor(Encryptor):
         Return a new (public key, private key) tuple for knapsack-cryptosystem.
 
         :return: new (public key, private key) tuple
-        :rtype: tuple[Key]
+        :rtype: tuple[Key, Key]
 
         """
 
