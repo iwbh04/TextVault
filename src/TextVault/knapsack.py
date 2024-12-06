@@ -2,8 +2,32 @@ try:
     from .base_class import *
 except ImportError:
     from base_class import *
+# from base_class import *
 import random
 import base64
+
+class KnapsackKey(Key):
+    """
+    Key class for TextVault.KnapsackEncryptor.
+    """
+    def __init__(self, value: str): 
+        super().__init__(value)
+    
+    def export_txt(self, file_name: str):
+        """
+        Export key to text file.
+        """
+        with open(file_name, "w") as f:
+            f.write(self.value)
+    
+    @classmethod
+    def import_txt(cls, file_name: str):
+        """
+        Import key from text file.
+        """
+        with open(file_name, "r") as f:
+            return cls(f.read())
+
 
 class KnapsackEncryptor(Encryptor):
     """
@@ -20,14 +44,14 @@ class KnapsackEncryptor(Encryptor):
         ret = [int.from_bytes(base64.b64decode(i)) for i in txt.split(',')]
         return ret
     
-    def encrypt(self, text: str, key: Key) -> str:
+    def encrypt(self, text: str, key: KnapsackKey) -> str:
         """
         Encrypt text with public key and return result.
 
         :param text: Text to encrypt.
         :type text: str
         :param key: public key
-        :type key: TextVault.Key
+        :type key: TextVault.KnapsackKey
         :return: encrypted text.
         :rtype: str
 
@@ -40,14 +64,14 @@ class KnapsackEncryptor(Encryptor):
         encrypted = [sum(int(x[i])*key[i] for i in range(len(key))) for x in binary_message]
         return self.__list_encode(encrypted)
     
-    def decrypt(self, text: str, key: Key) -> str:
+    def decrypt(self, text: str, key: KnapsackKey) -> str:
         """
         Decrypt text with private key and return result.
 
         :param text: Text to decrypt.
         :type text: str
         :param key: private key
-        :type key: TextVault.Key
+        :type key: TextVault.KnapsackKey
         :return: decrypted text.
         :rtype: str
 
@@ -74,12 +98,12 @@ class KnapsackEncryptor(Encryptor):
 
         return ''.join(chr(i) for i in recovered)
     
-    def newkey(self) -> tuple[Key, Key]:
+    def newkey(self) -> tuple[KnapsackKey, KnapsackKey]:
         """
         Return a new (public key, private key) tuple for knapsack-cryptosystem.
 
         :return: new (public key, private key) tuple
-        :rtype: tuple[Key, Key]
+        :rtype: tuple[KnapsackKey, KnapsackKey]
 
         """
 
@@ -112,7 +136,7 @@ class KnapsackEncryptor(Encryptor):
         public_key = [(x * mult) % mod for x in private_key]
         private_key += [mod, mult]
 
-        return Key(self.__list_encode(public_key)), Key(self.__list_encode(private_key))
+        return KnapsackKey(self.__list_encode(public_key)), KnapsackKey(self.__list_encode(private_key))
 
 """
 enc = KnapsackEncryptor()
