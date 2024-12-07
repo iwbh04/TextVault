@@ -2,7 +2,7 @@ from base_class import *
 import random
 import numpy as np
 
-class keyencdec(Encryptor):
+class HillCipherWithNumbers(Encryptor):
     """
     A modified Hill Cipher class that processes strings containing alphabets and numbers.
     Implements encryption and decryption by separating characters into ASCII codes (for alphabets) and numbers.
