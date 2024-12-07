@@ -12,6 +12,13 @@ To use TextVault, first install it using pip:
 
 Knapsack Encryptor
 ==================
+Overview
+--------
+https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem
+
+
+API Reference
+-------------
 .. autoclass:: TextVault.KnapsackEncryptor
     :members:
     :member-order: bysource

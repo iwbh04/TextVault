@@ -31,7 +31,7 @@ class KnapsackKey(Key):
 
 class KnapsackEncryptor(Encryptor):
     """
-    Encrypt text with https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem.
+    Encrytor class that encrypt text with https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem.
     """
     
     @staticmethod
