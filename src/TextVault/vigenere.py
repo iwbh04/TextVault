@@ -3,18 +3,16 @@ from base_class import Key, Encryptor
 class VigenereEncryptor(Encryptor):
     
     def newkey(self):
-    
         import random
         import string
         
         key_length = 10  # Set the length of the key
         key = ''.join(random.choice(string.ascii_uppercase) for _ in range(key_length))
-        pub = Key(value=key, encryptor=self)
-        priv = Key(value=key, encryptor=self)  # For Vigenère, both keys are the same
+        pub = Key(value=key, encryptor=VigenereEncryptor)  
+        priv = Key(value=key, encryptor=VigenereEncryptor)  
         return pub, priv
 
     def encrypt(self, text: str, key: Key) -> str:
-        
         key_value = key.value
         encrypted_text = []
         key_length = len(key_value)
@@ -32,7 +30,6 @@ class VigenereEncryptor(Encryptor):
         return ''.join(encrypted_text)
 
     def decrypt(self, text: str, key: Key) -> str:
-        
         key_value = key.value
         decrypted_text = []
         key_length = len(key_value)
