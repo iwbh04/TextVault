@@ -12,10 +12,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]/"src"))
 # sys.path.insert(0, str(Path(__file__).resolve().parents[2]/"src/TextVault"))
 
-project = 'TEXTVAULT_LIBRARY'
+project = 'TextVault'
 copyright = '2024, SANGHOON OH'
 author = 'SANGHOON OH'
-release = '0.1'
+release = '0.0.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
