@@ -101,23 +101,23 @@ print("Private Key:", private_key)
 Vigenère Encryption Module
 ==========================
 
-This module implements the Vigenère cipher algorithm, providing functionality to encrypt and decrypt given text using a secret key.
+This module implements the Vigenère cipher algorithm, providing functionality to encrypt and decrypt text using a symmetric key.
 
 Core Concept
 -------------
-The Vigenère cipher is a symmetric encryption technique, meaning the same key is used for both encryption and decryption. The key is a string of alphabetic characters, and each character in the text is shifted based on the position of the corresponding character in the key.
+The Vigenère cipher is a symmetric encryption technique, meaning the same key is used for both encryption and decryption. The key is a string of uppercase alphabetic characters, and each character in the text is shifted based on the position of the corresponding character in the key.
 
 How It Works
 ------------
-- The `newkey()` method generates a random encryption key.
-- The `encrypt()` method encrypts plaintext text using the provided key to produce a ciphertext.
-- The `decrypt()` method decrypts the ciphertext back into the original plaintext using the same key.
+- The `newkey()` method generates a random encryption key of fixed length (10 characters in this case).
+- The `encrypt()` method takes plaintext and encrypts it using the provided key.
+- The `decrypt()` method decrypts the encrypted text back to its original form using the same key.
 
 Features
 --------
-- Randomly generates a Vigenère encryption key.
-- Encrypts and decrypts text using the same key.
-- Differentiates between uppercase and lowercase letters, while leaving non-alphabetic characters unchanged.
+- Randomly generates a symmetric Vigenère encryption key.
+- Encrypts and decrypts text with the same key.
+- Supports both uppercase and lowercase letters, while non-alphabetic characters remain unchanged.
 
 Installation and Requirements
 -----------------------------
@@ -129,7 +129,7 @@ Requirements:
 
 Working Principle
 -----------------
-The Vigenère cipher is based on a repeated Caesar cipher technique. For each character in the text, the corresponding character in the key determines the shift applied to that letter. For example, an "A" would be shifted by the value of the key character "K", and a "B" would be shifted by the value of the next character in the key.
+The Vigenère cipher uses a key of repeated characters to shift each character in the text. The shift value for each character is determined by the corresponding character in the key. For example, if the key character is "A", the text character is unchanged, but if the key character is "B", the text character is shifted by one position in the alphabet.
 
 Usage Example
 --------------
@@ -142,16 +142,16 @@ from vigenere import VigenereEncryptor
 encryptor = VigenereEncryptor()
 
 # Generate a new key
-public_key, private_key = encryptor.newkey()
+key = encryptor.newkey()
 
 # Print the generated key
-print("Generated Key (Public & Private):", public_key.value)
+print("Generated Key:", key.value)
 
 # Example of encrypting text
 text = "Hello World!"
-encrypted = encryptor.encrypt(text, public_key)
+encrypted = encryptor.encrypt(text, key)
 print("Encrypted Text:", encrypted)
 
 # Example of decrypting the text
-decrypted = encryptor.decrypt(encrypted, private_key)
+decrypted = encryptor.decrypt(encrypted, key)
 print("Decrypted Text:", decrypted)

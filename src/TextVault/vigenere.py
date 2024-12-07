@@ -9,9 +9,10 @@ class VigenereEncryptor(Encryptor):
         
         key_length = 10  # Set the length of the key
         key = ''.join(random.choice(string.ascii_uppercase) for _ in range(key_length))
-        pub = Key(value=key, encryptor=self)
-        priv = Key(value=key, encryptor=self)  # For Vigenère, both keys are the same
-        return pub, priv
+        
+        # Vigenère uses symmetric key
+        ret = Key(value=key)
+        return ret
 
     def encrypt(self, text: str, key: Key) -> str:
         
@@ -52,11 +53,11 @@ class VigenereEncryptor(Encryptor):
 """
 enc = VigenereEncryptor()
 
-pub,priv = enc.newkey()
-a = enc.encrypt("Hello, World!", pub)
+key = enc.newkey()
+a = enc.encrypt("Hello, World!", key)
 
 print(a)
-A= enc.decrypt(a, priv)
+A= enc.decrypt(a, key)
 print(A)
 
 """
