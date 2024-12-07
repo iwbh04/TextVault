@@ -1,4 +1,5 @@
-from base_class import *
+try: from .base_class import Encryptor, Key
+except ImportError: from base_class import Encryptor, Key
 import random
 import numpy as np
 
