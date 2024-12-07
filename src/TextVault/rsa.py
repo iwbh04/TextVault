@@ -1,4 +1,6 @@
-from base_class import Encryptor, Key
+try: from .base_class import Encryptor, Key
+except ImportError: from base_class import Encryptor, Key
+
 import random
 from math import gcd
 
