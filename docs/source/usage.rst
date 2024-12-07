@@ -29,7 +29,7 @@ API Reference
 
 Example
 -------
-.. code-block::
+.. code-block:: python
     # After `$ pip install TextVault`
 
     from TextVault import KnapsackEncryptor
@@ -89,7 +89,7 @@ The `generate_keys()` function generates a pair of RSA keys (public and private)
 
 Example:
 
-.. code-block::
+.. code-block:: python
     from rsa import generate_keys
 
     public_key, private_key = generate_keys()
@@ -134,7 +134,7 @@ Usage Example
 --------------
 Here’s an example of how to use the Vigenère encryption module:
 
-.. code-block::
+.. code-block:: python
     from vigenere import VigenereEncryptor
 
     # Create an instance of the Vigenère encryption object
