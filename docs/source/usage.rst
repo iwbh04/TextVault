@@ -161,6 +161,7 @@ Here’s an example of how to use the Vigenère encryption module:
     # Example of decrypting the text
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
+<<<<<<< HEAD
 
 ---------------------------------------------
 
@@ -255,3 +256,5 @@ FAQ
 
 3. **How are numbers treated?**
    - Numbers are treated as their ASCII values and are converted back to their original form during decryption.
+=======
+>>>>>>> 919c7d03f99f3ff9cce810de4ab4e9e81a71acab
