@@ -2,78 +2,73 @@ from base_class import *
 import random
 import numpy as np
 
-class HillCipherWithNumbers(Encryptor):
+class keyencdec(Encryptor):
     """
     A modified Hill Cipher class that processes strings containing alphabets and numbers.
     Implements encryption and decryption by separating characters into ASCII codes (for alphabets) and numbers.
-    Automatically generates a random key matrix for encryption.
     """
 
-    def __init__(self, size=2):
-        self.size = size
-        self.key_matrix = self._generate_key_matrix(size)
+    def __init__(self, key_matrix=None, size=2):
         self.mod = 128  # Using ASCII range
+        if key_matrix:
+            self.key_matrix = np.array(key_matrix)
+        else:
+            self.key_matrix = self.newkey(size)
 
-    def _generate_key_matrix(self, size):
+    def newkey(self, size):
+        """
+        Generates a new random invertible key matrix of the given size.
+        """
         while True:
             matrix = [[random.randint(0, self.mod - 1) for _ in range(size)] for _ in range(size)]
             try:
-                # Ensure the matrix is invertible
-                np.linalg.inv(np.array(matrix))
-                return np.array(matrix)
+                det = int(round(np.linalg.det(matrix)))
+                if np.gcd(det, self.mod) == 1:  # Ensure determinant is invertible mod self.mod
+                    self.key_matrix = np.array(matrix)
+                    return self.key_matrix
             except np.linalg.LinAlgError:
-                continue  # Retry if the matrix is not invertible
+                continue
 
     def _char_to_num(self, char):
         if char.isalpha():
             return ord(char)  # Use ASCII code for alphabets
         elif char.isdigit():
-            return int(char)  # Keep numbers as integers
+            return ord(char)  # Treat digits as their ASCII values
 
     def _num_to_char(self, num):
-        if 0 <= num < 128:
-            return chr(num)  # Convert ASCII back to character
+        if 48 <= num <= 57:  # ASCII range for digits
+            return chr(num)  # Convert back to digit characters
+        elif 65 <= num <= 90 or 97 <= num <= 122:  # ASCII range for alphabets
+            return chr(num)  # Convert back to alphabet characters
         else:
             raise ValueError("Invalid number for conversion to character")
 
     def _process_text(self, text):
         nums = [self._char_to_num(char) for char in text]
-        while len(nums) % self.size != 0:
+        while len(nums) % self.key_matrix.shape[0] != 0:
             nums.append(0)  # Padding with 0
         return np.array(nums)
 
     def encrypt(self, plaintext):
         nums = self._process_text(plaintext)
-        nums = nums.reshape(-1, self.size)
+        nums = nums.reshape(-1, self.key_matrix.shape[0])
         encrypted_nums = (np.dot(nums, self.key_matrix) % self.mod).flatten()
         return encrypted_nums.tolist()
 
     def decrypt(self, encrypted_nums):
         encrypted_nums = np.array(encrypted_nums)
-        encrypted_nums = encrypted_nums.reshape(-1, self.size)
-        inverse_key = np.linalg.inv(self.key_matrix) % self.mod
-        inverse_key = np.round(inverse_key).astype(int)  # Ensure integers
+        encrypted_nums = encrypted_nums.reshape(-1, self.key_matrix.shape[0])
+        det = int(round(np.linalg.det(self.key_matrix)))
+        det_inv = pow(det, -1, self.mod)
+        adj = np.round(np.linalg.inv(self.key_matrix) * det).astype(int)  # Adjugate matrix
+        inverse_key = (det_inv * adj % self.mod).astype(int)
         decrypted_nums = (np.dot(encrypted_nums, inverse_key) % self.mod).flatten()
         return ''.join(self._num_to_char(int(round(num))) for num in decrypted_nums if num != 0)
 
-# Example usage
-if __name__ == "__main__":
-    cipher = HillCipherWithNumbers(size=2)
-
-    plaintext = "A1B2C3"
-    print("Original Text:", plaintext)
-
-    print("Generated Key Matrix:")
-    print(cipher.key_matrix)
-
-    encrypted = cipher.encrypt(plaintext)
-    print("Encrypted Text (as numbers):", encrypted)
-
-    decrypted = cipher.decrypt(encrypted)
-    print("Decrypted Text:", decrypted)
-
-    # Verification
-    if plaintext == decrypted:
-        print("Success: Decrypted text matches the original!")
-    else:
-        print("Error: Decrypted text does not match the original.")
+    def generate_random_password(self):
+        """
+        Generates a random password of length between 8 and 16 characters consisting of alphabets and numbers.
+        """
+        length = random.randint(8, 16)
+        characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        return ''.join(random.choices(characters, k=length))
