@@ -11,17 +11,6 @@ To use TextVault, first install it using pip:
 
     (.venv) $ pip install TextVault
 
-<<<<<<< Updated upstream
-Knapsack Encryptor
-==================
-.. autoclass:: TextVault.KnapsackEncryptor
-    :members:
-    :member-order: bysource
-.. autoclass:: TextVault.KnapsackKey
-    :members:
-    :member-order: bysource
-
-=======
 ----------------------------------------------------
 
 
@@ -60,7 +49,6 @@ Example
 
 ---------------------------------------------
 
->>>>>>> Stashed changes
 RSA Encryption Module
 =====================
 
@@ -103,15 +91,10 @@ The `generate_keys()` function generates a pair of RSA keys (public and private)
 
 Example:
 
-```python
-from rsa import generate_keys
+.. code-block:: python
 
-public_key, private_key = generate_keys()
-print("Public Key:", public_key)
-print("Private Key:", private_key)
+    from rsa import generate_keys
 
-<<<<<<< Updated upstream
-=======
     public_key, private_key = generate_keys()
     print("Public Key:", public_key)
     print("Private Key:", private_key)
@@ -176,4 +159,3 @@ Here’s an example of how to use the Vigenère encryption module:
     # Example of decrypting the text
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
->>>>>>> Stashed changes
