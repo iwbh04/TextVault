@@ -1,7 +1,6 @@
 import numpy as np
 from base_class import Encryptor, Key
 
-
 class JMatrixKey(Key):
     def __init__(self, value, is_private=False):
         super().__init__(value)
@@ -51,7 +50,7 @@ class JMatrixEncryptor(Encryptor):
 
         inverse_matrix = np.array(eval(key.value))  # Deserialize the inverse matrix
         encrypted_matrix = np.array(eval(text))
-        decrypted_matrix = np.dot(encrypted_matrix, inverse_matrix).astype(int)
+        decrypted_matrix = np.dot(encrypted_matrix, inverse_matrix).round().astype(int)
         decrypted_vector = decrypted_matrix.flatten().tolist()
         decrypted_text = ''.join(chr(char) for char in decrypted_vector if char > 0)
         return decrypted_text

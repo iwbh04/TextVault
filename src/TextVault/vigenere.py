@@ -1,4 +1,4 @@
-from base_class import Key, Encryptor
+from base_class import Encryptor, Key
 
 class VigenereEncryptor(Encryptor):
     

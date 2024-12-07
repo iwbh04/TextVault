@@ -1,4 +1,4 @@
-from base_class import*
+from base_class import Encryptor, Key
 import random
 from math import gcd
 
