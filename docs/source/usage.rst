@@ -10,11 +10,12 @@ To use TextVault, first install it using pip:
 
     (.venv) $ pip install TextVault
 
-Knapsack Encryptor
+Knapsack Encryption Module
 ==================
 Overview
 --------
-https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem
+This module includes Knapsack Encryptor and Key class.
+Encryptor class implements `Merkle-Hellman knapsack cryptosystem<https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`.
 
 
 API Reference
@@ -25,6 +26,27 @@ API Reference
 .. autoclass:: TextVault.KnapsackKey
     :members:
     :member-order: bysource
+
+Example
+-------
+```
+# After `$ pip install TextVault`
+
+from TextVault import KnapsackEncryptor
+txt = "Hello, World!"
+enc = KnapsackEncryptor()
+
+pub, priv = enc.newkey()
+encrypted = enc.encrypt(txt, pub)
+decrypted = enc.decrypt(a, priv)
+
+print("Public key:", pub)
+print("Private key:", priv)
+
+print("Original:", txt)
+print("Encrypted:", encrypted)
+print("Decrypted:", decrypted)
+```
 
 RSA Encryption Module
 =====================
