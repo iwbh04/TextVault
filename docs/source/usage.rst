@@ -13,15 +13,16 @@ To use TextVault, first install it using pip:
 
 ----------------------------------------------------
 
-
 .. _knapsack_usage:
 
 Knapsack Encryption Module
 ==========================
+
 Overview
 --------
 This module includes Knapsack Encryptor and Key class.
 Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
+
 
 :ref:`API Reference <kanpsack_api>`
 -----------------------------------
@@ -48,6 +49,7 @@ Example
     print("Decrypted:", decrypted)
 
 ---------------------------------------------
+
 
 RSA Encryption Module
 =====================
@@ -99,7 +101,9 @@ Example:
     print("Public Key:", public_key)
     print("Private Key:", private_key)
 
+
 -----------------------------------------------------------
+
 
 Vigenère Encryption Module
 ==========================
