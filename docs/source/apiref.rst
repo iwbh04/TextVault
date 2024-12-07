@@ -2,7 +2,6 @@
 API Reference
 =============
 
-
 Base classes
 ============
 
@@ -53,3 +52,35 @@ Example
     print("Original:", txt)
     print("Encrypted:", encrypted)
     print("Decrypted:", decrypted)
+
+----------------------------------------------
+
+RSA Encryption Module
+=====================
+.. autoclass:: TextVault.RsaEncryptor
+    :members:
+    :undoc-members:
+    :member-order: bysource
+
+----------------------------------------------
+
+Vigenère Encryption Module
+==========================
+.. autoclass:: TextVault.VigenereEncryptor
+    :members:
+    :undoc-members:
+    :member-order: bysource
+
+----------------------------------------------
+
+JMatrix Encryption Module
+==========================
+.. autoclass:: TextVault.JMatrixEncryptor
+    :members:
+    :undoc-members:
+    :member-order: bysource
+.. autoclass:: TextVault.JMatrixKey
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :member-order: bysource

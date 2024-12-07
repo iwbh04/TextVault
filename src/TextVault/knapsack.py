@@ -33,12 +33,12 @@ class KnapsackEncryptor(Encryptor):
     """
     
     @staticmethod
-    def __list_encode(li: list[int]) -> str:
+    def _list_encode(li: list[int]) -> str:
         b = b','.join(base64.b64encode(i.to_bytes(16)) for i in li)
         return b.decode()
 
     @staticmethod
-    def __list_decode(txt: str) -> list[int]:
+    def _list_decode(txt: str) -> list[int]:
         ret = [int.from_bytes(base64.b64decode(i)) for i in txt.split(',')]
         return ret
     
@@ -54,13 +54,13 @@ class KnapsackEncryptor(Encryptor):
         :rtype: str
 
         """
-        key = self.__list_decode(key.value)
+        key = self._list_decode(key.value)
 
         # 임시로 각 값의 ord를 사용
         binary_message = [f'{ord(c):0{len(key)}b}' for c in text]
 
         encrypted = [sum(int(x[i])*key[i] for i in range(len(key))) for x in binary_message]
-        return self.__list_encode(encrypted)
+        return self._list_encode(encrypted)
     
     def decrypt(self, text: str, key: KnapsackKey) -> str:
         """
@@ -74,13 +74,13 @@ class KnapsackEncryptor(Encryptor):
         :rtype: str
 
         """
-        key = self.__list_decode(key.value)
+        key = self._list_decode(key.value)
         if len(key) < 3: raise ValueError("Key format doesn't match")
 
         *arr, mod, mult = key
         inv_mult = pow(mult, -1, mod)
         
-        encrypted = self.__list_decode(text)
+        encrypted = self._list_decode(text)
         encrypted = [i*inv_mult%mod for i in encrypted]
 
         recovered = []
@@ -134,7 +134,7 @@ class KnapsackEncryptor(Encryptor):
         public_key = [(x * mult) % mod for x in private_key]
         private_key += [mod, mult]
 
-        return KnapsackKey(self.__list_encode(public_key)), KnapsackKey(self.__list_encode(private_key))
+        return KnapsackKey(self._list_encode(public_key)), KnapsackKey(self._list_encode(private_key))
 
 """
 enc = KnapsackEncryptor()
