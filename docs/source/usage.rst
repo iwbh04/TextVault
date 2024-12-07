@@ -161,14 +161,12 @@ Here’s an example of how to use the Vigenère encryption module:
     # Example of decrypting the text
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
-<<<<<<< HEAD
 
 ---------------------------------------------
-
-KeyEncDec Library
+HillCipherWithNumbers Library
 =================
 
-The `keyencdec` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
+The `HillCipherWithNumbers` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
 
 Installation
 ------------
@@ -188,14 +186,14 @@ Usage
 
 .. code-block:: python
 
-    from keyencdec import keyencdec
+    from HillCipherWithNumbers import HillCipherWithNumbers
 
     # Default initialization
-    cipher = keyencdec()
+    cipher = HillCipherWithNumbers()
 
     # Custom key matrix initialization
     key_matrix = [[1, 2], [3, 4]]
-    cipher = keyencdec(key_matrix=key_matrix)
+    cipher = HillCipherWithNumbers(key_matrix=key_matrix)
 
 2. **Encrypting Text**
 
@@ -256,5 +254,3 @@ FAQ
 
 3. **How are numbers treated?**
    - Numbers are treated as their ASCII values and are converted back to their original form during decryption.
-=======
->>>>>>> 919c7d03f99f3ff9cce810de4ab4e9e81a71acab
