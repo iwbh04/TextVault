@@ -68,3 +68,61 @@ public_key, private_key = generate_keys()
 print("Public Key:", public_key)
 print("Private Key:", private_key)
 
+
+Vigenère Encryption Module
+==========================
+
+This module implements the Vigenère cipher algorithm, providing functionality to encrypt and decrypt given text using a secret key.
+
+Core Concept
+-------------
+The Vigenère cipher is a symmetric encryption technique, meaning the same key is used for both encryption and decryption. The key is a string of alphabetic characters, and each character in the text is shifted based on the position of the corresponding character in the key.
+
+How It Works
+------------
+- The `newkey()` method generates a random encryption key.
+- The `encrypt()` method encrypts plaintext text using the provided key to produce a ciphertext.
+- The `decrypt()` method decrypts the ciphertext back into the original plaintext using the same key.
+
+Features
+--------
+- Randomly generates a Vigenère encryption key.
+- Encrypts and decrypts text using the same key.
+- Differentiates between uppercase and lowercase letters, while leaving non-alphabetic characters unchanged.
+
+Installation and Requirements
+-----------------------------
+To use this module, simply import the necessary classes into your project.
+
+Requirements:
+- Python 3.7 or higher
+- Standard libraries: random, string
+
+Working Principle
+-----------------
+The Vigenère cipher is based on a repeated Caesar cipher technique. For each character in the text, the corresponding character in the key determines the shift applied to that letter. For example, an "A" would be shifted by the value of the key character "K", and a "B" would be shifted by the value of the next character in the key.
+
+Usage Example
+--------------
+Here’s an example of how to use the Vigenère encryption module:
+
+```python
+from vigenere import VigenereEncryptor
+
+# Create an instance of the Vigenère encryption object
+encryptor = VigenereEncryptor()
+
+# Generate a new key
+public_key, private_key = encryptor.newkey()
+
+# Print the generated key
+print("Generated Key (Public & Private):", public_key.value)
+
+# Example of encrypting text
+text = "Hello World!"
+encrypted = encryptor.encrypt(text, public_key)
+print("Encrypted Text:", encrypted)
+
+# Example of decrypting the text
+decrypted = encryptor.decrypt(encrypted, private_key)
+print("Decrypted Text:", decrypted)
