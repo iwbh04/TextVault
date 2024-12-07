@@ -23,12 +23,10 @@ Overview
 This module includes Knapsack Encryptor and Key class.
 Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
 
-
-:ref:`API Reference <kanpsack_api>`
------------------------------------
-
 Example
 -------
+:ref:`API Reference <kanpsack_api>`
+
 .. code-block:: python
 
     # After `$ pip install TextVault`
