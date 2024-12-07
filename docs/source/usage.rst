@@ -162,6 +162,8 @@ Here’s an example of how to use the Vigenère encryption module:
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
 
+---------------------------------------------
+
 KeyEncDec Library
 =================
 
