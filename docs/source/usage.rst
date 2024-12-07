@@ -163,7 +163,7 @@ Here’s an example of how to use the Vigenère encryption module:
     print("Decrypted Text:", decrypted)
 
 ---------------------------------------------
-HillCipherWithNumbers Library
+HillCipherWithNumbers Module
 =================
 
 The `HillCipherWithNumbers` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
