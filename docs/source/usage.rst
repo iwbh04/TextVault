@@ -163,6 +163,7 @@ Here’s an example of how to use the Vigenère encryption module:
     print("Decrypted Text:", decrypted)
 
 ---------------------------------------------
+
 HillCipherWithNumbers Module
 =================
 
