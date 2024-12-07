@@ -161,3 +161,100 @@ Here’s an example of how to use the Vigenère encryption module:
     # Example of decrypting the text
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
+<<<<<<< HEAD
+
+---------------------------------------------
+
+KeyEncDec Library
+=================
+
+The `keyencdec` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
+
+Installation
+------------
+
+This library requires Python 3.x and the `numpy` package. If `numpy` is not already installed, you can install it with:
+
+.. code-block:: bash
+
+    pip install numpy
+
+Usage
+-----
+
+1. **Initializing the Class**
+   - By default, a random key matrix of size 2 is generated.
+   - You can also provide your own key matrix.
+
+.. code-block:: python
+
+    from keyencdec import keyencdec
+
+    # Default initialization
+    cipher = keyencdec()
+
+    # Custom key matrix initialization
+    key_matrix = [[1, 2], [3, 4]]
+    cipher = keyencdec(key_matrix=key_matrix)
+
+2. **Encrypting Text**
+
+   Encrypt a string containing alphabets and numbers.
+
+.. code-block:: python
+
+    plaintext = "Hello123"
+    encrypted = cipher.encrypt(plaintext)
+    print("Encrypted:", encrypted)
+
+3. **Decrypting Text**
+
+   Decrypt the encrypted list of numbers back into the original string.
+
+.. code-block:: python
+
+    decrypted = cipher.decrypt(encrypted)
+    print("Decrypted:", decrypted)
+
+4. **Generating a Random Password**
+
+   Generate a random password consisting of alphabets and numbers, with a length between 8 and 16 characters.
+
+.. code-block:: python
+
+    password = cipher.generate_random_password()
+    print("Random Password:", password)
+
+Advanced Features
+-----------------
+
+1. **Generating a New Key**
+   - Use the `newkey(size)` method to generate a new random key matrix of the specified size.
+
+.. code-block:: python
+
+    new_key = cipher.newkey(3)  # Generate a 3x3 key matrix
+    print("New Key Matrix:", new_key)
+
+2. **ASCII-based Processing**
+   - The class processes text by converting each character to its ASCII value for encryption and decryption.
+
+Limitations
+-----------
+
+- This class supports only characters within the ASCII range (0–127).
+- The key matrix must be invertible under modulo 128 for encryption and decryption to work correctly.
+
+FAQ
+---
+
+1. **What can this library be used for?**
+   - It can be used for simple encryption and decryption of text-based data.
+
+2. **How is padding handled?**
+   - If the length of the text does not match the size of the key matrix, padding with `0` is applied during encryption.
+
+3. **How are numbers treated?**
+   - Numbers are treated as their ASCII values and are converted back to their original form during decryption.
+=======
+>>>>>>> 919c7d03f99f3ff9cce810de4ab4e9e81a71acab
