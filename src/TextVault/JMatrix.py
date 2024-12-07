@@ -3,8 +3,8 @@ from base_class import Encryptor, Key
 
 
 class JMatrixKey(Key):
-    def __init__(self, value, encryptor, is_private=False):
-        super().__init__(value, encryptor)
+    def __init__(self, value, is_private=False):
+        super().__init__(value)
         self.is_private = is_private
 
 
@@ -26,8 +26,8 @@ class JMatrixEncryptor(Encryptor):
         matrix = self._generate_matrix(self.constant)
         inverse_matrix = np.linalg.inv(matrix)
 
-        public_key = JMatrixKey(value=str(matrix.tolist()), encryptor=self, is_private=False)
-        private_key = JMatrixKey(value=str(inverse_matrix.tolist()), encryptor=self, is_private=True)
+        public_key = JMatrixKey(value=str(matrix.tolist()), is_private=False)
+        private_key = JMatrixKey(value=str(inverse_matrix.tolist()), is_private=True)
 
         return public_key, private_key
 

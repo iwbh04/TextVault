@@ -1,1 +1,1 @@
-from .knapsack import KnapsackEncryptor
+from .knapsack import KnapsackEncryptor, KnapsackKey

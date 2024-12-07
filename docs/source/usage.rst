@@ -14,7 +14,10 @@ Knapsack Encryptor
 ==================
 .. autoclass:: TextVault.KnapsackEncryptor
     :members:
-
+    :member-order: bysource
+.. autoclass:: TextVault.KnapsackKey
+    :members:
+    :member-order: bysource
 
 RSA Encryption Module
 =====================

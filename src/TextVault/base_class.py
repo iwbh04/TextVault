@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
+from typing import Any
 
 class Key:
-    def __init__(self, value, encryptor):
-        self.value: str = value
-        self.encryptor: Encryptor = encryptor
-
+    def __init__(self, value):
+        self.value: Any = value
 
 class Encryptor(ABC):
     @abstractmethod
