@@ -1,8 +1,9 @@
+=====
 Usage
 =====
 
 Installation
-------------
+============
 
 To use TextVault, first install it using pip:
 
@@ -10,24 +11,22 @@ To use TextVault, first install it using pip:
 
     (.venv) $ pip install TextVault
 
+----------------------------------------------------
+
+.. _knapsack_usage:
+
 Knapsack Encryption Module
 ==========================
+
 Overview
 --------
 This module includes Knapsack Encryptor and Key class.
 Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
 
-API Reference
--------------
-.. autoclass:: TextVault.KnapsackEncryptor
-    :members:
-    :member-order: bysource
-.. autoclass:: TextVault.KnapsackKey
-    :members:
-    :member-order: bysource
-
 Example
 -------
+:ref:`API Reference <kanpsack_api>`
+
 .. code-block:: python
 
     # After `$ pip install TextVault`
@@ -38,7 +37,7 @@ Example
 
     pub, priv = enc.newkey()
     encrypted = enc.encrypt(txt, pub)
-    decrypted = enc.decrypt(a, priv)
+    decrypted = enc.decrypt(encrypted, priv)
 
     print("Public key:", pub)
     print("Private key:", priv)
@@ -46,6 +45,9 @@ Example
     print("Original:", txt)
     print("Encrypted:", encrypted)
     print("Decrypted:", decrypted)
+
+---------------------------------------------
+
 
 RSA Encryption Module
 =====================
@@ -96,6 +98,9 @@ Example:
     public_key, private_key = generate_keys()
     print("Public Key:", public_key)
     print("Private Key:", private_key)
+
+
+-----------------------------------------------------------
 
 
 Vigenère Encryption Module

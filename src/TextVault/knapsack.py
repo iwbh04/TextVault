@@ -5,6 +5,7 @@ except ImportError:
 # from base_class import *
 import random
 import base64
+from typing import Self
 
 class KnapsackKey(Key):
     """
@@ -21,17 +22,16 @@ class KnapsackKey(Key):
             f.write(self.value)
     
     @classmethod
-    def import_txt(cls, file_name: str):
+    def import_txt(cls, file_name: str) -> Self:
         """
         Import key from text file.
         """
         with open(file_name, "r") as f:
             return cls(f.read())
 
-
 class KnapsackEncryptor(Encryptor):
     """
-    Encryptor class which implements https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem.
+    Encryptor class which implements Merkle-Hellman knapsack cryptosystem.
     """
     
     @staticmethod
