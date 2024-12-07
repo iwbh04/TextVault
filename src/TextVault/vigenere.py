@@ -1,4 +1,7 @@
-from base_class import Key, Encryptor
+try:
+    from .base_class import Encryptor, Key
+except:
+    from base_class import Encryptor, Key
 
 class VigenereEncryptor(Encryptor):
     

@@ -1,4 +1,7 @@
-from base_class import*
+try:
+    from .base_class import Encryptor, Key
+except:
+    from base_class import Encryptor, Key
 import random
 from math import gcd
 
