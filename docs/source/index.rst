@@ -14,4 +14,4 @@ documentation for details.
 .. toctree::
    
    usage
-
+   apiref

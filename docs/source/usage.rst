@@ -1,8 +1,9 @@
+=====
 Usage
 =====
 
 Installation
-------------
+============
 
 To use TextVault, first install it using pip:
 
@@ -10,6 +11,7 @@ To use TextVault, first install it using pip:
 
     (.venv) $ pip install TextVault
 
+<<<<<<< Updated upstream
 Knapsack Encryptor
 ==================
 .. autoclass:: TextVault.KnapsackEncryptor
@@ -19,6 +21,46 @@ Knapsack Encryptor
     :members:
     :member-order: bysource
 
+=======
+----------------------------------------------------
+
+
+.. _knapsack_usage:
+
+Knapsack Encryption Module
+==========================
+Overview
+--------
+This module includes Knapsack Encryptor and Key class.
+Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
+
+:ref:`API Reference <kanpsack_api>`
+-----------------------------------
+
+Example
+-------
+.. code-block:: python
+
+    # After `$ pip install TextVault`
+
+    from TextVault import KnapsackEncryptor
+    txt = "Hello, World!"
+    enc = KnapsackEncryptor()
+
+    pub, priv = enc.newkey()
+    encrypted = enc.encrypt(txt, pub)
+    decrypted = enc.decrypt(encrypted, priv)
+
+    print("Public key:", pub)
+    print("Private key:", priv)
+
+    print("Original:", txt)
+    print("Encrypted:", encrypted)
+    print("Decrypted:", decrypted)
+
+---------------------------------------------
+
+>>>>>>> Stashed changes
 RSA Encryption Module
 =====================
 
@@ -68,3 +110,70 @@ public_key, private_key = generate_keys()
 print("Public Key:", public_key)
 print("Private Key:", private_key)
 
+<<<<<<< Updated upstream
+=======
+    public_key, private_key = generate_keys()
+    print("Public Key:", public_key)
+    print("Private Key:", private_key)
+
+-----------------------------------------------------------
+
+Vigenère Encryption Module
+==========================
+
+This module implements the Vigenère cipher algorithm, providing functionality to encrypt and decrypt text using a symmetric key.
+
+Core Concept
+-------------
+The Vigenère cipher is a symmetric encryption technique, meaning the same key is used for both encryption and decryption. The key is a string of uppercase alphabetic characters, and each character in the text is shifted based on the position of the corresponding character in the key.
+
+How It Works
+------------
+- The `newkey()` method generates a random encryption key of fixed length (10 characters in this case).
+- The `encrypt()` method takes plaintext and encrypts it using the provided key.
+- The `decrypt()` method decrypts the encrypted text back to its original form using the same key.
+
+Features
+--------
+- Randomly generates a symmetric Vigenère encryption key.
+- Encrypts and decrypts text with the same key.
+- Supports both uppercase and lowercase letters, while non-alphabetic characters remain unchanged.
+
+Installation and Requirements
+-----------------------------
+To use this module, simply import the necessary classes into your project.
+
+Requirements:
+- Python 3.7 or higher
+- Standard libraries: random, string
+
+Working Principle
+-----------------
+The Vigenère cipher uses a key of repeated characters to shift each character in the text. The shift value for each character is determined by the corresponding character in the key. For example, if the key character is "A", the text character is unchanged, but if the key character is "B", the text character is shifted by one position in the alphabet.
+
+Usage Example
+--------------
+Here’s an example of how to use the Vigenère encryption module:
+
+.. code-block:: python
+
+    from vigenere import VigenereEncryptor
+
+    # Create an instance of the Vigenère encryption object
+    encryptor = VigenereEncryptor()
+
+    # Generate a new key
+    key = encryptor.newkey()
+
+    # Print the generated key
+    print("Generated Key:", key.value)
+
+    # Example of encrypting text
+    text = "Hello World!"
+    encrypted = encryptor.encrypt(text, key)
+    print("Encrypted Text:", encrypted)
+
+    # Example of decrypting the text
+    decrypted = encryptor.decrypt(encrypted, key)
+    print("Decrypted Text:", decrypted)
+>>>>>>> Stashed changes

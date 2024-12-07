@@ -31,7 +31,11 @@ class KnapsackKey(Key):
 
 class KnapsackEncryptor(Encryptor):
     """
+<<<<<<< Updated upstream
     Encrypt text with https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem.
+=======
+    Encryptor class which implements Merkle-Hellman knapsack cryptosystem.
+>>>>>>> Stashed changes
     """
     
     @staticmethod
