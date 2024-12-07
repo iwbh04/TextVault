@@ -1,8 +1,4 @@
-try:
-    from .base_class import *
-except ImportError:
-    from base_class import *
-# from base_class import *
+from base_class import Encryptor, Key
 import random
 import base64
 from typing import Self
