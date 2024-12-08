@@ -20,12 +20,27 @@ Knapsack Encryption Module
 
 Overview
 --------
-This module includes Knapsack Encryptor and Key class.
+This module includes ``KnapsackEncryptor`` and ``KnapsackKey`` class.
 
-Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
+``KnapsackEncryptor`` class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
 
+How It Works
+------------
+- ``newkey()``
+    This method generates superincreasing sequence as a private key
+    and it chooses random modular(> sum of private key) and multipler.
+    Then it makes public key by ``[(i*mult)%mod for i in private_key]``
 
-For more information, check :ref:`API Reference <kanpsack_api>`.
+- ``encrypt()``
+    This method converts each byte of the plaintext into its integer form and then obtains the binary representation of each integer.
+    For every byte, it calculates the sum of the numbers in the public key that correspond to the set bits in the binary representation.
+    Finally, it converts list of sum back into text and returns it.
+   
+- ``decrypt()``
+    This method decrypts ciphertext with private key (including sequence, multipier and modular) 
+    and reconstructs original text from decrypted list of bytes.
+ 
+For more information, check `Wikipedia <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_ and :ref:`API Reference <kanpsack_api>`.
 
 Example
 -------
@@ -102,9 +117,7 @@ Example:
     print("Public Key:", public_key)
     print("Private Key:", private_key)
 
-
 -----------------------------------------------------------
-
 
 Vigenère Encryption Module
 ==========================
@@ -164,6 +177,12 @@ Here’s an example of how to use the Vigenère encryption module:
     # Example of decrypting the text
     decrypted = encryptor.decrypt(encrypted, key)
     print("Decrypted Text:", decrypted)
+
+-----------------------------------------------------------
+
+JMatrix Encryption Module
+==========================
+TBU
 
 ---------------------------------------------
 
