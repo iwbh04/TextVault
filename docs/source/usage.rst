@@ -212,7 +212,7 @@ Usage
 
 .. code-block:: python
 
-    from TextVault.HillCipherWithNumbers import HillCipherWithNumbers
+    from TextVault.HillCipherWithNumbers import Hillcipherwithnumbers
 
     # Default initialization
     cipher = HillCipherWithNumbers()
