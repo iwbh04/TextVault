@@ -103,7 +103,7 @@ Usage
 
 ### Key Generation
 
-The `generate_keys()` function generates a pair of RSA keys (public and private). The keys consist of the following components:
+The ``newkey()`` function generates a pair of RSA keys (public and private). The keys consist of the following components:
 - **Public Key**: `(e, n)`
 - **Private Key**: `(d, n)`
 
@@ -113,7 +113,7 @@ Example:
 
     from rsa import generate_keys
 
-    public_key, private_key = generate_keys()
+    public_key, private_key = newkey()
     print("Public Key:", public_key)
     print("Private Key:", private_key)
 
