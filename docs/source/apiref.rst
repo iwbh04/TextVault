@@ -88,7 +88,7 @@ JMatrix Encryption Module
 
 HillCipherWithNumbers Module
 ============================
-.. autoclass:: TextVault.HillCipherWithNumbers
+.. autoclass:: TextVault.Hillcipherwithnumbers
     :members:
     :undoc-members:
     :member-order: bysource
