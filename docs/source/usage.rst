@@ -194,6 +194,7 @@ The public key (a matrix) is used for encryption, while the private key (the mat
 Installation
 ------------
 Ensure the required dependencies are installed:
+
 .. code-block:: bash
 
        pip install numpy
@@ -217,7 +218,7 @@ Usage Examples
 
    .. code-block:: python
 
-       from JMatrix import JMatrixEncryptor
+       from TextVault.JMatrix import JMatrixEncryptor
 
        # Create an instance with a matrix size of 3x3
        encryptor = JMatrixEncryptor(matrix_size=3)
