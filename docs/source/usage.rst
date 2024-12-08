@@ -111,12 +111,14 @@ Example:
 
 .. code-block:: python
 
-    from rsa import newkey
+    from TextVault.rsa import RsaEncryptor
+    # need to install TextVault into the repository first
+    if __name__ == "__main__":
+        # Instantiate the Encryptor
+        enc = RsaEncryptor()
 
-    public_key, private_key = newkey()
-    print("Public Key:", public_key)
-    print("Private Key:", private_key)
-
+        print("Generating RSA keys...")
+        public_key, private_key = enc.newkey()
 -----------------------------------------------------------
 
 Vigenère Encryption Module
