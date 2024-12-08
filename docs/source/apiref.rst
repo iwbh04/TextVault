@@ -32,8 +32,8 @@ Knapsack Encryption Module
     :members:
     :member-order: bysource
 
-Example
--------
+**Example**
+
 .. code-block:: python
 
     # After `$ pip install TextVault`
@@ -81,6 +81,14 @@ JMatrix Encryption Module
     :member-order: bysource
 .. autoclass:: TextVault.JMatrixKey
     :members:
-    :special-members: __init__
+    :undoc-members:
+    :member-order: bysource
+
+-----------------------------------------------
+
+HillCipherWithNumbers Module
+============================
+.. autoclass:: TextVault.HillCipherWithNumbers
+    :members:
     :undoc-members:
     :member-order: bysource

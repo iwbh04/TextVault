@@ -21,11 +21,14 @@ Knapsack Encryption Module
 Overview
 --------
 This module includes Knapsack Encryptor and Key class.
+
 Encryptor class implements `Merkle-Hellman knapsack cryptosystem <https://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>`_.
+
+
+For more information, check :ref:`API Reference <kanpsack_api>`.
 
 Example
 -------
-:ref:`API Reference <kanpsack_api>`
 
 .. code-block:: python
 
@@ -165,7 +168,7 @@ Here’s an example of how to use the Vigenère encryption module:
 ---------------------------------------------
 
 HillCipherWithNumbers Module
-=================
+============================
 
 The `HillCipherWithNumbers` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
 

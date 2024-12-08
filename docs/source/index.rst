@@ -22,6 +22,7 @@ This is a data encryption and decryption package.
 --------------------------------------------------------------------
 
 .. toctree::
-   
+   :maxdepth: 3
+
    usage
    apiref
