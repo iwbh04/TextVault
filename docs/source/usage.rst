@@ -111,7 +111,7 @@ Example:
 
 .. code-block:: python
 
-    from rsa import generate_keys
+    from rsa import newkey
 
     public_key, private_key = newkey()
     print("Public Key:", public_key)
