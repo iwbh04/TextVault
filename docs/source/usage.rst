@@ -119,6 +119,7 @@ Example:
 
         print("Generating RSA keys...")
         public_key, private_key = enc.newkey()
+
 -----------------------------------------------------------
 
 Vigenère Encryption Module
@@ -160,7 +161,7 @@ Here’s an example of how to use the Vigenère encryption module:
 
 .. code-block:: python
 
-    from vigenere import VigenereEncryptor
+    from TextVault.vigenere import VigenereEncryptor
 
     # Create an instance of the Vigenère encryption object
     encryptor = VigenereEncryptor()
@@ -211,7 +212,7 @@ Usage
 
 .. code-block:: python
 
-    from HillCipherWithNumbers import HillCipherWithNumbers
+    from TextVault.HillCipherWithNumbers import HillCipherWithNumbers
 
     # Default initialization
     cipher = HillCipherWithNumbers()
