@@ -3,7 +3,7 @@ except ImportError: from base_class import Encryptor, Key
 import random
 import numpy as np
 
-class HillCipherWithNumbers(Encryptor):
+class Hillcipherwithnumbers(Encryptor):
 
     def __init__(self, key_matrix=None, size=2):
         self.mod = 128  # Using ASCII range
