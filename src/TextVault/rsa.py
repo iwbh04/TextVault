@@ -85,14 +85,14 @@ class RsaEncryptor(Encryptor):
         return plain
 
     # Function to save keys to text files
-    def save_keys(public_key, private_key):
+    def save_keys(self,public_key, private_key):
         with open("public_key.txt", "w") as pub_file:
             pub_file.write(f"{public_key[0]}\n{public_key[1]}")
         with open("private_key.txt", "w") as priv_file:
             priv_file.write(f"{private_key[0]}\n{private_key[1]}")
 
     # Function to load keys from text files
-    def load_key(file_path):
+    def load_key(self,file_path):
         with open(file_path, "r") as file:
             lines = file.readlines()
             return int(lines[0].strip()), int(lines[1].strip())
