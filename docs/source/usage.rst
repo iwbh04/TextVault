@@ -185,7 +185,66 @@ Here’s an example of how to use the Vigenère encryption module:
 
 JMatrix Encryption Module
 ==========================
-TBU
+
+`JMatrixEncryptor` is a Python class for matrix-based encryption and decryption. 
+It uses a deterministic matrix generation seeded by a constant (`31504`) to create public and private keys.
+
+The public key (a matrix) is used for encryption, while the private key (the matrix's inverse) is used for decryption.
+
+Installation
+------------
+Ensure the required dependencies are installed:
+.. code-block:: bash
+
+       pip install numpy
+
+Features
+-------
+
+- **newkey()**
+    Generates a pair of public and private keys.
+
+- **encrypt(text, key)**
+    Encrypts a plaintext string using the public key.
+
+- **decrypt(text, key)**
+    Decrypts an encrypted string using the private key.
+
+Usage Examples
+--------------
+
+1. **Instantiate the Encryptor**
+
+   .. code-block:: python
+
+       from JMatrix import JMatrixEncryptor
+
+       # Create an instance with a matrix size of 3x3
+       encryptor = JMatrixEncryptor(matrix_size=3)
+
+2. **Generate Keys**
+
+   .. code-block:: python
+
+       public_key, private_key = encryptor.newkey()
+       print(f"Public Key: {public_key}")
+       print(f"Private Key: {private_key}")
+
+3. **Encrypt a Message**
+
+   .. code-block:: python
+
+       message = "hello"
+       encrypted_message = encryptor.encrypt(message, public_key)
+       print(f"Original Message: {message}")
+       print(f"Encrypted Message: {encrypted_message}")
+
+4. **Decrypt a Message**
+
+   .. code-block:: python
+
+       decrypted_message = encryptor.decrypt(encrypted_message, private_key)
+       print(f"Decrypted Message: {decrypted_message}")
 
 ---------------------------------------------
 
