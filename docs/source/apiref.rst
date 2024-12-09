@@ -36,7 +36,7 @@ Knapsack Encryption Module
 
 .. code-block:: python
 
-    # After `$ pip install TextVault`
+    # After installing TextVault
 
     from TextVault import KnapsackEncryptor, KnapsackKey
     txt = "Hello, World! 😀"

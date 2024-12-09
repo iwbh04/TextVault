@@ -9,14 +9,14 @@ To use TextVault, first install it using pip:
 
 .. code-block:: console
 
-    (.venv) $ pip install -i https://test.pypi.org/simple/ TextVault
+    $ pip install -i https://test.pypi.org/simple/ TextVault
 
 This library requires Python 3.11+ and ``numpy``.
 If ``numpy`` is not already installed, you can install it with:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pip install numpy
+    $ pip install numpy
 
 ----------------------------------------------------
 
@@ -54,7 +54,7 @@ Example
 
 .. code-block:: python
 
-    # After `$ pip install TextVault`
+    # After installing TextVault
 
     from TextVault import KnapsackEncryptor
     txt = "Hello, World!"
