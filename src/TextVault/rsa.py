@@ -14,8 +14,9 @@ class RsaEncryptor(Encryptor):
             if self.is_prime(num):
                 return num
 
-    # Function to check if a number is prime
+    # 
     def is_prime(self,n):
+        """Function to check if a number is prime."""
         if n <= 1:
             return False
         for i in range(2, int(n**0.5) + 1):
@@ -109,15 +110,15 @@ class RsaEncryptor(Encryptor):
         plain = ''.join([chr((self.base36_decode(block) ** d) % n) for block in blocks])
         return plain
 
-    # Function to save keys to text files
     def save_keys(self,public_key, private_key):
+        """Function to save keys to text files"""
         with open("public_key.txt", "w") as pub_file:
             pub_file.write(f"{public_key[0]}\n{public_key[1]}")
         with open("private_key.txt", "w") as priv_file:
             priv_file.write(f"{private_key[0]}\n{private_key[1]}")
 
-    # Function to load keys from text files
     def load_key(self,file_path):
+        """Function to load keys from text files"""
         with open(file_path, "r") as file:
             lines = file.readlines()
             return int(lines[0].strip()), int(lines[1].strip())
