@@ -11,6 +11,13 @@ To use TextVault, first install it using pip:
 
     (.venv) $ pip install -i https://test.pypi.org/simple/ TextVault
 
+This library requires Python 3.11+ and ``numpy``.
+If ``numpy`` is not already installed, you can install it with:
+
+.. code-block:: bash
+
+    pip install numpy
+
 ----------------------------------------------------
 
 .. _knapsack_usage:
@@ -66,7 +73,6 @@ Example
 
 ---------------------------------------------
 
-
 RSA Encryption Module
 =====================
 
@@ -88,15 +94,6 @@ Features
 - Decrypt ciphertext messages using a private key.
 - Save and load keys to and from text files.
 - Supports Base36 encoding for ciphertext representation.
-
-Installation
-------------
-
-To use this module, clone the repository and import the required functions directly into your project.
-
-Requirements:
-- Python 3.7 or higher.
-- Standard libraries: `math`, `random`.
 
 Usage
 -----
@@ -143,13 +140,6 @@ Features
 - Encrypts and decrypts text with the same key.
 - Supports both uppercase and lowercase letters, while non-alphabetic characters remain unchanged.
 
-Installation and Requirements
------------------------------
-To use this module, simply import the necessary classes into your project.
-
-Requirements:
-- Python 3.7 or higher
-- Standard libraries: random, string
 
 Working Principle
 -----------------
@@ -190,14 +180,6 @@ JMatrix Encryption Module
 It uses a deterministic matrix generation seeded by a constant (`31504`) to create public and private keys.
 
 The public key (a matrix) is used for encryption, while the private key (the matrix's inverse) is used for decryption.
-
-Installation
-------------
-Ensure the required dependencies are installed:
-
-.. code-block:: bash
-
-       pip install numpy
 
 Features
 --------
@@ -253,15 +235,6 @@ HillCipherWithNumbers Module
 ============================
 
 The `HillCipherWithNumbers` class implements a modified Hill Cipher algorithm for encrypting and decrypting strings containing both alphabets and numbers. It uses ASCII values for processing and also includes a feature to generate random passwords.
-
-Installation
-------------
-
-This library requires Python 3.x and the `numpy` package. If `numpy` is not already installed, you can install it with:
-
-.. code-block:: bash
-
-    pip install numpy
 
 Usage
 -----
