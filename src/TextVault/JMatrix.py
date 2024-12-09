@@ -22,6 +22,9 @@ class JMatrixEncryptor(Encryptor):
         return matrix
 
     def newkey(self) -> tuple[JMatrixKey, JMatrixKey]:
+        """
+        Generates a pair of public and private keys
+        """
       
         matrix = self._generate_matrix(self.constant)
         inverse_matrix = np.linalg.inv(matrix)
@@ -32,6 +35,9 @@ class JMatrixEncryptor(Encryptor):
         return public_key, private_key
 
     def encrypt(self, text: str, key: JMatrixKey) -> str:
+        """
+        Encrypts a plaintext string using the public key
+        """
  
         if key.is_private:
             raise ValueError("Private key cannot be used for encryption.")
@@ -45,6 +51,9 @@ class JMatrixEncryptor(Encryptor):
         return str(encrypted_matrix.tolist())
 
     def decrypt(self, text: str, key: JMatrixKey) -> str:
+        """
+        Decrypts an encrypted string using the private key
+        """
 
         if not key.is_private:
             raise ValueError("Public key cannot be used for decryption.")
