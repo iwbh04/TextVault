@@ -1,10 +1,11 @@
 import numpy as np
-from base_class import Encryptor, Key
 
+try: from .base_class import Encryptor, Key
+except ImportError: from base_class import Encryptor, Key
 
 class JMatrixKey(Key):
-    def __init__(self, value, encryptor, is_private=False):
-        super().__init__(value, encryptor)
+    def __init__(self, value, is_private=False):
+        super().__init__(value)
         self.is_private = is_private
 
 
@@ -29,15 +30,17 @@ class JMatrixEncryptor(Encryptor):
         matrix = self._generate_matrix(self.constant)
         inverse_matrix = np.linalg.inv(matrix)
 
-        public_key = JMatrixKey(value=str(matrix.tolist()), encryptor=self, is_private=False)
-        private_key = JMatrixKey(value=str(inverse_matrix.tolist()), encryptor=self, is_private=True)
+        public_key = JMatrixKey(value=str(matrix.tolist()), is_private=False)
+        private_key = JMatrixKey(value=str(inverse_matrix.tolist()), is_private=True)
 
         return public_key, private_key
 
     def encrypt(self, text: str, key: JMatrixKey) -> str:
+
         """
         Encrypts a plaintext string using the public key
         """
+
  
         if key.is_private:
             raise ValueError("Private key cannot be used for encryption.")
@@ -51,39 +54,21 @@ class JMatrixEncryptor(Encryptor):
         return str(encrypted_matrix.tolist())
 
     def decrypt(self, text: str, key: JMatrixKey) -> str:
+
         """
         Decrypts an encrypted string using the private key
         """
+
 
         if not key.is_private:
             raise ValueError("Public key cannot be used for decryption.")
 
         inverse_matrix = np.array(eval(key.value))  # Deserialize the inverse matrix
         encrypted_matrix = np.array(eval(text))
-        decrypted_matrix = np.dot(encrypted_matrix, inverse_matrix).astype(int)
+
+        decrypted_matrix = np.dot(encrypted_matrix, inverse_matrix).round().astype(int)
+
         decrypted_vector = decrypted_matrix.flatten().tolist()
         decrypted_text = ''.join(chr(char) for char in decrypted_vector if char > 0)
         return decrypted_text
 
-"""
-
-if __name__ == "__main__":
-    # Instantiate the encryptor
-    encryptor = JMatrixEncryptor(matrix_size=3)
-
-    # Generate keys
-    public_key, private_key = encryptor.newkey()
-    print(f"Public Key: {public_key}")
-    print(f"Private Key: {private_key}")
-
-    # Encrypt a message
-    message = "hello"
-    encrypted_message = encryptor.encrypt(message, public_key)
-    print(f"Original Message: {message}")
-    print(f"Encrypted Message: {encrypted_message}")
-
-    # Decrypt the message
-    decrypted_message = encryptor.decrypt(encrypted_message, private_key)
-    print(f"Decrypted Message: {decrypted_message}")
-
-"""
