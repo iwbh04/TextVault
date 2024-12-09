@@ -12,7 +12,7 @@ class Hillcipherwithnumbers(Encryptor):
         else:
             self.key_matrix = self.newkey(size)
 
-    def newkey(self, size):
+    def newkey(self, size: int):
         while True:
             matrix = [[random.randint(0, self.mod - 1) for _ in range(size)] for _ in range(size)]
             try:
@@ -43,13 +43,13 @@ class Hillcipherwithnumbers(Encryptor):
             nums.append(0)  # Padding with 0
         return np.array(nums)
 
-    def encrypt(self, plaintext):
+    def encrypt(self, plaintext: str) -> list[int]:
         nums = self._process_text(plaintext)
         nums = nums.reshape(-1, self.key_matrix.shape[0])
         encrypted_nums = (np.dot(nums, self.key_matrix) % self.mod).flatten()
         return encrypted_nums.tolist()
 
-    def decrypt(self, encrypted_nums):
+    def decrypt(self, encrypted_nums: list[int]) -> str:
         encrypted_nums = np.array(encrypted_nums)
         encrypted_nums = encrypted_nums.reshape(-1, self.key_matrix.shape[0])
         det = int(round(np.linalg.det(self.key_matrix)))
@@ -59,7 +59,7 @@ class Hillcipherwithnumbers(Encryptor):
         decrypted_nums = (np.dot(encrypted_nums, inverse_key) % self.mod).flatten()
         return ''.join(self._num_to_char(int(round(num))) for num in decrypted_nums if num != 0)
 
-    def generate_random_password(self):
+    def generate_random_password(self) -> str:
         """
         Generates a random password of length between 8 and 16 characters consisting of alphabets and numbers.
         """
