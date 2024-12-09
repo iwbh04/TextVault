@@ -8,7 +8,7 @@ TextVault documentation
 
 This is a data encryption and decryption package.
 
-This package was developed as a simple implementation for a school project and may not provide robust security.
+This package was developed as a simple implementation for a university project and may not provide robust security.
 
 .. Add your content using ``reStructuredText`` syntax. See the
    `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
