@@ -5,10 +5,12 @@ import random
 from math import gcd
 
 class RsaEncryptor(Encryptor):
-# Function to generate a large prime number
+    """
+    Encryptor class which implements RSA algorithm.
+    """
     def generate_prime(self):
         while True:
-            num = random.randint(100, 999)  # Generate a 3-digit number (for simplicity to shorten run time)
+            num = random.randint(100, 999)  
             if self.is_prime(num):
                 return num
 
@@ -21,14 +23,15 @@ class RsaEncryptor(Encryptor):
                 return False
         return True
 
-    # Function to find modular inverse--> formula: (e x d) mod phi(n) = 1
     def modular_inverse(self,e, phi):
+       """
+       Function to find modular inverse--> formula: (e x d) mod phi(n) = 1
+       """
         for d in range(1, phi):
             if (e * d) % phi == 1: 
                 return d
         return None
 
-    # Base36 Encoding
     def base36_encode(self,num):
         chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         if num == 0:
@@ -39,7 +42,6 @@ class RsaEncryptor(Encryptor):
             result.append(chars[rem])
         return ''.join(reversed(result))
 
-    # Base36 Decoding
     def base36_decode(self,encoded_str):
         chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         num = 0
@@ -47,8 +49,11 @@ class RsaEncryptor(Encryptor):
             num = num * 36 + chars.index(char)
         return num
 
-    # RSA Key Generation
-    def newkey(self):
+    
+    def newkey(self): -> tuple[tuple[int,int],tuple[int,int]]
+        """
+        RSA key generation
+        """
         p = self.generate_prime()
         q = self.generate_prime()
         while q == p:  # Ensure p and q are different
@@ -65,18 +70,38 @@ class RsaEncryptor(Encryptor):
 
         return (e, n), (d, n)  # Public key, Private key
 
-    # Encryption
-    def encrypt(self,plaintext, public_key):
+    def encrypt(self,plaintext: str, public_key: tuple[int,int]) -> str: 
+        """
+        Encrypt plaintext with public key and return result.
+
+        :param plaintext: Text to encrypt.
+        :type plaintext: str
+        :param public_key: public key
+        :type public_key: TextVault.KnapsackKey
+        :return: encrypted text.
+        :rtype: str
+
+        """
         e, n = public_key
-        block_size = len(self.base36_encode(n))  # Calculate the maximum block size for Base36
+        block_size = len(self.base36_encode(n))  
         cipher = [
-            self.base36_encode((ord(char) ** e) % n).zfill(block_size)  # Pad with zeros
+            self.base36_encode((ord(char) ** e) % n).zfill(block_size)  
             for char in plaintext
         ]
         return ''.join(cipher)  # Combine blocks into a single string
 
-    # Decryption
-    def decrypt(self,ciphertext, private_key):
+    def decrypt(self,ciphertext: str, private_key: tuple[int,int]) -> str:
+        """
+        Decrypt ciphertext with private key and return result.
+
+        :param ciphertext: Text to decrypt.
+        :type ciphertext: str
+        :param private_key: private key
+        :type private_key: TextVault.KnapsackKey
+        :return: decrypted text.
+        :rtype: str
+
+        """
         d, n = private_key
         block_size = len(self.base36_encode(n))  # Use the same block size as encryption
         # Split the ciphertext into fixed-size blocks
