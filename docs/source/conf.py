@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]/"src"))
 project = 'TextVault'
 copyright = '2024, SANGHOON OH'
 author = 'SANGHOON OH'
-release = '1.0.1'
+release = '1.0.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
