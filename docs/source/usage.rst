@@ -98,7 +98,7 @@ Features
 Usage
 -----
 
-** Key Generation **
+**Key Generation**
 
 The ``newkey()`` function generates a pair of RSA keys (public and private). The keys consist of the following components:
 - **Public Key**: `(e, n)`
