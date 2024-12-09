@@ -6,12 +6,9 @@ class VigenereEncryptor(Encryptor):
     A class that implements Vigenère cipher encryption and decryption using a symmetric key.
     """
 
-    def newkey(self) -> tuple[int, int]:
+    def newkey(self) -> tuple[str]:
         """
         Generates a new random symmetric key for the Vigenère cipher.
-
-        Returns:
-            tuple[int, int]: A tuple representing a symmetric key.
         """
         import random
         import string
@@ -21,16 +18,9 @@ class VigenereEncryptor(Encryptor):
 
         return key
 
-    def encrypt(self, text: str, key: tuple[int, int]) -> str:
+    def encrypt(self, text: str, key: tuple[str]) -> str:
         """
         Encrypts a given text using the provided Vigenère key.
-
-        Args:
-            text (str): The plaintext message to be encrypted.
-            key (tuple[int, int]): A tuple representing the symmetric key.
-
-        Returns:
-            str: The encrypted message.
         """
         key_value = ''.join(key)  # Convert tuple to string
         encrypted_text = []
@@ -48,16 +38,9 @@ class VigenereEncryptor(Encryptor):
 
         return ''.join(encrypted_text)
 
-    def decrypt(self, text: str, key: tuple[int, int]) -> str:
+    def decrypt(self, text: str, key: tuple[str]) -> str:
         """
         Decrypts an encrypted text back to its original form using the provided key.
-
-        Args:
-            text (str): The encrypted message to be decrypted.
-            key (tuple[int, int]): A tuple representing the symmetric key.
-
-        Returns:
-            str: The original plaintext message.
         """
         key_value = ''.join(key)  # Convert tuple to string
         decrypted_text = []
@@ -86,3 +69,4 @@ A = enc.decrypt(a, key)
 print(A)
 
 """
+
