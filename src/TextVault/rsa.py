@@ -14,7 +14,6 @@ class RsaEncryptor(Encryptor):
             if self.is_prime(num):
                 return num
 
-    # 
     def is_prime(self,n):
         """Function to check if a number is prime."""
         if n <= 1:
@@ -25,9 +24,9 @@ class RsaEncryptor(Encryptor):
         return True
 
     def modular_inverse(self,e, phi):
-       """
-       Function to find modular inverse--> formula: (e x d) mod phi(n) = 1
-       """
+        """
+        Function to find modular inverse--> formula: (e x d) mod phi(n) = 1
+        """
         for d in range(1, phi):
             if (e * d) % phi == 1: 
                 return d
@@ -51,7 +50,7 @@ class RsaEncryptor(Encryptor):
         return num
 
     
-    def newkey(self): -> tuple[tuple[int,int],tuple[int,int]]
+    def newkey(self) ->  tuple[tuple[int,int],tuple[int,int]]:
         """
         RSA key generation
         """
