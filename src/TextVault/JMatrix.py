@@ -36,7 +36,6 @@ class JMatrixEncryptor(Encryptor):
         return public_key, private_key
 
     def encrypt(self, text: str, key: JMatrixKey) -> str:
-
         """
         Encrypts a plaintext string using the public key
         """
@@ -54,7 +53,6 @@ class JMatrixEncryptor(Encryptor):
         return str(encrypted_matrix.tolist())
 
     def decrypt(self, text: str, key: JMatrixKey) -> str:
-
         """
         Decrypts an encrypted string using the private key
         """

@@ -200,7 +200,7 @@ Ensure the required dependencies are installed:
        pip install numpy
 
 Features
--------
+--------
 
 - **newkey()**
     Generates a pair of public and private keys.
