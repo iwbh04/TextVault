@@ -6,7 +6,7 @@ class VigenereEncryptor(Encryptor):
     A class that implements Vigenère cipher encryption and decryption using a symmetric key.
     """
 
-    def newkey(self) -> tuple[str]:
+    def newkey(self) -> tuple[str, ...]:
         """
         Generates a new random symmetric key for the Vigenère cipher.
         """
@@ -18,7 +18,7 @@ class VigenereEncryptor(Encryptor):
 
         return key
 
-    def encrypt(self, text: str, key: tuple[str]) -> str:
+    def encrypt(self, text: str, key: tuple[str, ...]) -> str:
         """
         Encrypts a given text using the provided Vigenère key.
         """
@@ -38,7 +38,7 @@ class VigenereEncryptor(Encryptor):
 
         return ''.join(encrypted_text)
 
-    def decrypt(self, text: str, key: tuple[str]) -> str:
+    def decrypt(self, text: str, key: tuple[str, ...]) -> str:
         """
         Decrypts an encrypted text back to its original form using the provided key.
         """
