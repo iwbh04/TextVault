@@ -9,7 +9,7 @@ To use TextVault, first install it using pip:
 
 .. code-block:: console
 
-    (.venv) $ pip install TextVault
+    (.venv) $ pip install -i https://test.pypi.org/simple/ TextVault
 
 ----------------------------------------------------
 
